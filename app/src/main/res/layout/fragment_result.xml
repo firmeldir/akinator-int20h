@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.ResultFragment">
+
+        <ImageView
+            android:id="@+id/resultImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic[13]" />
+
+        <TextView
+            android:id="@+id/guessText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="32dp"
+            android:text="I think of"
+
+            app:layout_constraintEnd_toEndOf="@+id/resultImage"
+            app:layout_constraintStart_toStartOf="@+id/resultImage"
+            app:layout_constraintTop_toBottomOf="@+id/resultImage" />
+
+        <TextView
+            android:id="@+id/songTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="8dp"
+            android:text="Kent - VinterNoll2"
+
+            app:layout_constraintEnd_toEndOf="@+id/guessText"
+            app:layout_constraintStart_toStartOf="@+id/guessText"
+            app:layout_constraintTop_toBottomOf="@+id/guessText" />
+
+        <Button
+            android:id="@+id/victoryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Yes"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/loseButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/songTitleText"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <Button
+            android:id="@+id/loseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="No"
+
+            app:layout_constraintBottom_toBottomOf="@+id/victoryButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/victoryButton"
+            app:layout_constraintTop_toTopOf="@+id/victoryButton" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
