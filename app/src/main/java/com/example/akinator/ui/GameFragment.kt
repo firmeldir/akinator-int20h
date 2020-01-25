@@ -45,7 +45,7 @@ class GameFragment : Fragment() {
         binding.searchButton.setOnClickListener {
             //findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
 
-            viewModel.getSongByLyrics(binding.songLineText.text.toString())
+            viewModel.getSongByLyrics(binding.textInput.text.toString())
         }
     }
 

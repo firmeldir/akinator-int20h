@@ -2,4 +2,8 @@
     <string name="app_name">Akinator</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="play">Play</string>
+    <string name="hint">Die stumpfe Klinge gut und recht</string>
+    <string name="let_us_guess">Let us guess!</string>
+    <string name="akinator_game_words">Enter words from your favorite song</string>
 </resources>
