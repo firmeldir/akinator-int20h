@@ -89,9 +89,13 @@ dependencies {
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
 
     //Dagger 2
-    implementation "com.google.dagger:dagger:2.16"
-    kapt "com.google.dagger:dagger-compiler:2.16"
+    implementation "com.google.dagger:dagger:2.25.4"
+    kapt "com.google.dagger:dagger-compiler:2.25.4"
     compileOnly "org.glassfish:javax.annotation:3.1.1"
 
     kapt "com.android.databinding:compiler:$android_plugin_version"
+
+    //Media
+    implementation "androidx.media:media:1.1.0"
+    implementation "com.google.android.exoplayer:exoplayer-core:2.10.8"
 }
