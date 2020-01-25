@@ -6,6 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorLayoutBackground"
         tools:context=".ui.LoseFragment">
 
         <ImageView
@@ -16,12 +17,12 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
+            android:src="@drawable/akinator_lose"
 
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/backgrounds/scenic[13]" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/againButton"
