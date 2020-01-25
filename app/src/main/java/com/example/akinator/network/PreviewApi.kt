@@ -7,9 +7,7 @@ import retrofit2.http.Query
 
 interface PreviewApi {
 
-    @GET("search")
-    suspend fun searchTrack(
-        @Query("q") titleAndArtist: String
-    ): Deferred<Response<PreviewApiResponse>>
+    @GET("search/")
+    suspend fun searchTrack(@Query("q") titleAndArtist: String): Response<PreviewApiResponse>
 
 }

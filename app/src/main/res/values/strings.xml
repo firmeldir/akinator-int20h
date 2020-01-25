@@ -6,4 +6,11 @@
     <string name="hint">Die stumpfe Klinge gut und recht</string>
     <string name="let_us_guess">Let us guess!</string>
     <string name="akinator_game_words">Enter words from your favorite song</string>
+    <string name="play_again">Play again</string>
+    <string name="i_think_of">I think of</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="one_more_chance">One more chance</string>
+    <string name="continue_q">Continue?</string>
+    <string name="cry">Cry Baby Cry =(((</string>
 </resources>

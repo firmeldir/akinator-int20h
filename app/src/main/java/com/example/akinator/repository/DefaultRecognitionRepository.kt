@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.akinator.model.Song
 import com.example.akinator.model.SongPreview
 import com.example.akinator.network.*
+import com.example.akinator.network.PreviewApiFactory.previewApi
 import java.io.IOException
 
 class DefaultRecognitionRepository(
@@ -17,17 +18,33 @@ class DefaultRecognitionRepository(
             is Result.Success -> {
                 val result = response.data.result
 
-                if (result.isNotEmpty()) {
+                if (result != null && result.isNotEmpty())
                     Result.Success(result[0].toSong())
-                } else {
+                else
                     Result.Error(Exception("The search has not given any results"))
-                }
             }
-            is Result.Error -> {
-                Result.Error(response.exception)
-            }
+
+            is Result.Error -> Result.Error(response.exception)
+
             else -> Result.Error(IOException("Timed out Error"))
         }
+
+    private suspend fun getApiResult(lyrics: String): Result<ApiResponse> {
+
+        val response = api.searchByLyrics(lyrics)
+
+        if (response.isSuccessful) {
+            val body = response.body()
+
+            return if(body == null) Result.Error(Exception("The search has not given any results"))
+                    else Result.Success(body)
+        }
+
+        return Result.Error(IOException("Error Occurred during getting safe Api result"))
+    }
+
+
+
 
     override suspend fun getSongPreview(song: Song) =
         when (val response = getPreviewResult(song.title, song.artist)) {
@@ -42,20 +59,10 @@ class DefaultRecognitionRepository(
             else -> Result.Error(IOException("Timed out Error"))
         }
 
-
-    private suspend fun getApiResult(lyrics: String): Result<ApiResponse> {
-
-        val response = api.searchByLyrics(lyrics).await()
-
-        if (response.isSuccessful) return Result.Success(response.body()!!)
-
-        return Result.Error(IOException("Error Occurred during getting safe Api result"))
-    }
-
     private suspend fun getPreviewResult(songTitle: String, artistName: String) = try {
         val response =
             previewApi.searchTrack("""track:"${songTitle}" artist:"${artistName}" bpm_max:1""")
-                .await()
+
         if (response.isSuccessful) Result.Success(response.body()!!)
         else Result.Error(java.lang.Exception("The search has not given any results"))
     } catch (exception: Exception) {

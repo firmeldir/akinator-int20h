@@ -8,5 +8,6 @@ import retrofit2.http.Query
 interface RecognitionApi {
 
     @GET("findLyrics/")
-    fun searchByLyrics(@Query("q") q : String) : Deferred<Response<ApiResponse>>
+    suspend fun searchByLyrics(@Query("q") q : String) : Response<ApiResponse>
+
 }

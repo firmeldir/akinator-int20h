@@ -29,8 +29,9 @@
             android:layout_height="wrap_content"
 
             android:layout_marginTop="16dp"
+            android:textSize="24sp"
 
-            android:text="One more chance"
+            android:text="@string/one_more_chance"
             app:layout_constraintEnd_toEndOf="@+id/loseImage"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="@+id/loseImage"
@@ -42,7 +43,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginTop="8dp"
-            android:text="Play again"
+            android:text="@string/play_again"
 
             app:layout_constraintEnd_toEndOf="@+id/loseImage"
             app:layout_constraintStart_toStartOf="@+id/loseImage"
@@ -54,7 +55,10 @@
             android:layout_height="wrap_content"
 
             android:layout_marginTop="32dp"
-            android:text="Continue?"
+            android:text="@string/continue_q"
+            android:fontFamily="@font/bangers"
+            android:textColor="@color/colorOnFirst"
+            android:textSize="18sp"
 
             app:layout_constraintEnd_toEndOf="@+id/loseImage"
             app:layout_constraintStart_toStartOf="@+id/loseImage"

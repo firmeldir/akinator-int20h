@@ -23,12 +23,17 @@ class GameViewModel : ViewModel(){
         RecognitionApiFactory.recognitionApi,
         PreviewApiFactory.previewApi)
 
-    private val _songPreview = MutableLiveData<SongPreview>()
-    val songPreview : LiveData<SongPreview> = _songPreview
+    var healthCount = 5
+        private set
 
-    private val _supposedSong = MutableLiveData<Song>()
-    val supposedSong : LiveData<Song>
+    fun loseTriggered() = healthCount--
+
+    private val _supposedSong = MutableLiveData<Song?>()
+    val supposedSong : LiveData<Song?>
         get() = _supposedSong
+
+    private val _songPreview = MutableLiveData<SongPreview?>()
+    val songPreview : LiveData<SongPreview?> = _songPreview
 
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage : LiveData<String>
@@ -38,18 +43,13 @@ class GameViewModel : ViewModel(){
         _errorMessage.value = ""
     }
 
-    fun getSongByLyrics(lyrics : String){
-        viewModelScope.launch {
+    fun getSongByLyrics(lyrics : String) = viewModelScope.launch {
             when(val result = recognitionRepository.getSongByLyrics(lyrics)) {
-                is Result.Success ->{
-                    _supposedSong.postValue(result.data)
-                }
-                is Result.Error -> {
-                    _errorMessage.postValue(result.exception.message)
-                }
+                is Result.Success -> _supposedSong.postValue(result.data)
+                is Result.Error -> _errorMessage.postValue(result.exception.message)
             }
         }
-    }
+
 
     fun getSongPreview(song: Song) = viewModelScope.launch {
         when(val result = recognitionRepository.getSongPreview(song)) {
@@ -58,4 +58,14 @@ class GameViewModel : ViewModel(){
         }
     }
 
+    fun clearSongState(){
+        _supposedSong.value = null
+        _songPreview.value = null
+        _errorMessage.value = ""
+    }
+
+    fun clearGameState(){
+        clearSongState()
+        healthCount = 5
+    }
 }

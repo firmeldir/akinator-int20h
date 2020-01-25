@@ -21,7 +21,9 @@
         tools:layout="@layout/fragment_game" >
         <action
             android:id="@+id/action_gameFragment_to_resultFragment"
-            app:destination="@id/resultFragment" />
+            app:destination="@id/resultFragment"
+            app:popUpTo="@+id/homeFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -30,10 +32,12 @@
         tools:layout="@layout/fragment_result" >
         <action
             android:id="@+id/action_resultFragment_to_victoryFragment"
-            app:destination="@id/victoryFragment" />
+            app:destination="@id/victoryFragment"
+            app:popUpTo="@+id/homeFragment" />
         <action
             android:id="@+id/action_resultFragment_to_loseFragment"
-            app:destination="@id/loseFragment" />
+            app:destination="@id/loseFragment"
+            app:popUpTo="@+id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/victoryFragment"
@@ -42,7 +46,9 @@
         tools:layout="@layout/fragment_victory" >
         <action
             android:id="@+id/action_victoryFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@+id/homeFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/loseFragment"
@@ -51,6 +57,7 @@
         tools:layout="@layout/fragment_lose" >
         <action
             android:id="@+id/action_loseFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@+id/homeFragment" />
     </fragment>
 </navigation>

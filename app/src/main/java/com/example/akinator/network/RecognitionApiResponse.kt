@@ -3,7 +3,7 @@ package com.example.akinator.network
 import com.example.akinator.model.Song
 
 data class ApiResponse(
-    val result : List<SongResult>
+    val result : List<SongResult>?
 )
 
 data class SongResult(

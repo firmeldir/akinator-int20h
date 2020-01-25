@@ -31,7 +31,6 @@ object PreviewApiFactory {
         .client(client)
         .baseUrl(BASE_URL)
         .addConverterFactory(MoshiConverterFactory.create())
-        .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
 
     val previewApi : PreviewApi = retrofit().create(PreviewApi::class.java)
